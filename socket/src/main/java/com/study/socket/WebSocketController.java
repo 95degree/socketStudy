@@ -1,16 +1,11 @@
 package com.study.socket;
 
-import org.springframework.messaging.handler.annotation.MessageMapping;
-import org.springframework.messaging.handler.annotation.SendTo;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
-
-@MessageMapping("/time")
-@Controller
+@RestController
 public class WebSocketController {
-
-    @SendTo("/topic/test")
-    public Time sendTime(Time userTime){
+    public Time sendTime(@RequestBody Time userTime){
         return userTime;
     }
 }
